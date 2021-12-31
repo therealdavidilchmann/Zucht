@@ -1,0 +1,29 @@
+{% setvar title => admin %}
+{% extend sites/admin/layout@container %}
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+                News
+                <a href="/index.php/admin/news/create">Neu</a>
+            </h5>
+            <hr>
+            {% loop news %}
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-between">
+                            <p style="margin: 0; padding: 0;">{% getvar news.title %}</p>
+                            <div>
+                                <a href="/index.php/admin/news/edit?id={% getvar news.id %}">Bearbeiten</a> /
+                                <a href="/index.php/admin/news/delete?id={% getvar news.id %}" onclick="return confirm('Willst du wirklich diesen Eintrag löschen?')">Löschen</a>
+                            </div>
+                        </h5>
+                        <h6 class="card-subtitle text-muted mb-2">{% getvar news.date %}</h6>
+                        <p class="card-text">{% getvar news.text %}</p>
+                    </div>
+                </div>
+            {% endloop news %}
+        </div>
+    </div>
+</div>

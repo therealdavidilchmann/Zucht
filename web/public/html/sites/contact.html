@@ -1,0 +1,67 @@
+{% setvar title => Kontakt %}
+{% extend layout@container %}
+
+{% import static/css/sites/contact.css %}
+
+<div>
+    <div class="row jc-space-even">
+        <div class="col-3 personal-data mt-5">
+            <p style="font-size: 25px;">KATHRIN&nbsp;&nbsp;ILCHMANN</p>
+            <p style="font-size: 20px;">kontakt@von-der-waldkolonie.de</p>
+            <p style="font-size: 20px;">01743154711</p>
+            <br>
+            <p style="font-size: 20px;">Waldkolonie 14</p>
+            <p style="font-size: 20px;">64404 Bickenbach</p>
+            <a href="https://www.google.com/maps/dir//Waldkolonie+14,+64404+Bickenbach/@49.74815,8.61557,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47bd7cfa1f58f6dd:0xbbc02435116ba66e!2m2!1d8.6163971!2d49.7488871" target="_blank" class="link-blue">Routenplaner</a>
+        </div>
+        <div class="col-5 form-wrapper">
+            <form method="post" action="/message/new">
+                <div class="form-group">
+                    <label for="firstname">Vorname</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Vorname">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Nachname</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Nachname">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="E-Mail">
+                </div>
+                <div class="form-group">
+                    <label for="telNr">Telefonnummer</label>
+                    <input type="text" class="form-control" id="telNr" placeholder="Telefonnummer">
+                </div>
+                <div class="form-group">
+                    <label for="msg">Nachricht</label>
+                    <input type="text" class="form-control" id="msg" placeholder="Nachricht">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="privatePolicy">
+                    <label class="form-check-label" for="privatePolicy">Ich stimme der Datenschutzerklährung zu</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Senden</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row jc-space-even">
+        <div class="col-3">
+            <p style="font-size: 30px;">Unser Zuhause...</h3>
+            <br>
+        </div>
+        <div class="col-6"></div>
+    </div>
+    <div class="row jc-space-even">
+        <div class="col-5">
+            <img src="{% img haus_vorne.jpg;image/jpg %}" alt="" class="w-100 rounded shadow img-cover" style="height: 60vh;">
+            <img src="{% img garten_von_kleine_terasse.jpg;image/jpg %}" alt="" class="w-100 rounded shadow img-cover" style="height: 60vh; margin-top: 20px;">
+        </div>
+        <div class="col-5">
+            <img src="{% img gaertchen.jpg;image/jpg %}" alt="" class="rounded shadow img-cover" style="height: calc(20px + 120vh);">
+        </div>
+        
+        
+    </div>
+    
+</div>

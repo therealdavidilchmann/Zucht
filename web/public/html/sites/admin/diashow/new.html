@@ -1,0 +1,17 @@
+{% setvar title => admin %}
+{% extend sites/admin/layout@container %}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Diashow - Neues Bild hinzufügen</h5>
+        <hr>
+        <div>
+            <form method="post" action="/index.php/admin/ourDog/create" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" class="form-control" id="img" name="img">
+                </div>
+                <button type="submit" class="btn btn-primary">Hinzufügen</button>
+            </form>
+        </div>
+    </div>
+</div>

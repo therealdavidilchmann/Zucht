@@ -1,0 +1,138 @@
+{% setvar title => Von der Waldkolonie %}
+{% extend layout@container %}
+
+<style>
+    .news-item {
+        cursor: pointer;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        margin: 20px 5px;
+        border-radius: 5px;
+        background-color: rgb(240, 240, 240);
+    }
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<div>
+    <div class="row jc-space-even">
+        <img src="{% img lotte_verrückt_im_garten.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover img-responsive">
+        <img src="{% img lotte_nase_auf_stange.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover img-responsive">
+    </div>
+    <hr class="separator">
+    <div class="row jc-space-even">
+        <div class="welcome-text w-40">
+            <h3 style="font-size: 30px; font-family: 'Merienda', cursive;">Herzlich Willkommen auf unserer Homepage!</h3>
+            <p style="font-size: 20px; font-family: 'Kavivanar', cursive; text-align: justify;">
+                Wir, mein Mann Tim und ich (Kathrin) wohnen gemeinsam mit unseren 4 Kindern David, Benjamin, Sarah und Samuel im beschaulichen <a href="https://www.google.com/maps/dir//Waldkolonie+14,+64404+Bickenbach/@49.74815,8.61557,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x47bd7cfa1f58f6dd:0xbbc02435116ba66e!2m2!1d8.6163971!2d49.7488871" target="_blank" class="link-blue">Bickenbach</a> am Rande des Odenwalds zwischen Darmstadt und Heidelberg.<br>
+                Seit 2017 verstärkt unsere Hündin Lotte das Team. Sie ist eine kleine „vom Elbbachtal“ und kommt aus dem schönen Westerwald. Mehr Informationen und Bilder zu Lotte findet ihr unter „<a href="/index.php/ourDog" class="link-blue">Unser Hund</a>“.<br><br>
+                Schon einige Zeit planen wir, in die Golden Retriever-Zucht einzusteigen. Jetzt sind die Kinder selbstständig, sodass wir mit einer verantwortungsvollen Zucht starten können. Für Frühjahr 2022 erhoffen wir uns den ersten Wurf. <a href="/dogs/information" class="link-blue">Mehr Informationen</a><br><br>
+                Unser Ziel ist es wesensfeste, typische, gesunde und menschenbezogene Golden Retriever zu züchten.
+            </p>
+            <p style="font-size: 20px; font-family: 'Kavivanar', cursive;">
+                Unsere Zucht wird durch den GRC kontrolliert und geschützt.
+            </p>
+        </div>
+
+        <div class="news w-40">
+            <h3 style="font-size: 30px; font-family: 'Merienda', cursive; text-align: center;">News</h3>
+            {% loop news %}
+                <div class="card mb-3 shadow mt-2">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-between">
+                            <p style="margin: 0; padding: 0;">{% getvar news.title %}</p>
+                        </h5>
+                        <h6 class="card-subtitle text-muted mb-2">{% getvar news.date %}</h6>
+                        <p class="card-text">{% getvar news.text %}</p>
+                        <div style="display: none;">
+                            <p>{% getvar news.fullText %}</p>
+                        </div>
+                        <button onclick="openModal(this)" class="btn btn-link">Mehr ansehen</button>
+                    </div>
+                </div>
+            {% endloop news %}
+        </div>
+    </div>
+    <hr class="separator">
+    <div class="row jc-space-even">
+        <img src="{% img lotte_mama_männchen.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+        <img src="{% img mama_lotte_kuscheln.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="card" style="width: 80%; margin: auto;">
+            <div class="card-body">
+                <span class="close">&times;</span>
+                <h5 class="card-title" id="modal-title"></h5>
+                <p id="modal-text"></p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    
+    const openModal = function(btn) {
+        document.getElementById('modal-text').innerHTML = "";
+        document.getElementById('modal-title').innerHTML = "";
+        var modalText = btn.parentNode.children[3].childNodes;
+        for (var i = 0; i < modalText.length; i++) {
+            document.getElementById('modal-text').appendChild(modalText.item(i).cloneNode(true));
+        }
+        modalText = btn.parentNode.children[0].childNodes;
+        console.log(modalText)
+        document.getElementById('modal-title').appendChild(modalText.item(1).cloneNode(true));
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

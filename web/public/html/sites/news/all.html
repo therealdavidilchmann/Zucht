@@ -1,0 +1,33 @@
+{% setvar title => Von der Waldkolonie %}
+{% extend layout@container %}
+
+
+<style>
+    .news-item {
+        cursor: pointer;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        margin: 20px 5px;
+        border-radius: 5px;
+        background-color: rgb(240, 240, 240);
+    }
+</style>
+
+<div class="container">
+    <div class="news">
+        <h3 style="font-size: 30px; font-family: 'Merienda', cursive; text-align: center; margin-bottom: 20px;">Diashow</h3>
+        {% loop news %}
+            <form action="/news/one" method="GET">
+                <div class="card mb-4 shadow" onclick="this.parentElement.submit()">
+                    <div class="card-body">
+                        <input type="hidden" name="id" value="{% getvar news.id %}">
+                        <h5 class="card-title">{% getvar news.title %}</h5>
+                        <h6 class="card-subtitle">{% getvar news.date %}</h6>
+                        <hr>
+                        <p class="card-text">{% getvar news.text %}</p>
+                    </div>
+                </div>
+            </form>
+        {% endloop news %}
+    </div>
+</div>

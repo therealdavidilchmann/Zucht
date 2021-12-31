@@ -1,0 +1,110 @@
+{% setvar title => Unser Hund %}
+{% extend layout@container %}
+
+{% import static/css/sites/ourDog.css %}
+
+<div>
+    <div class="row jc-space-even">
+        <img src="{% getvar paginationFirstImg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+        <img src="{% getvar paginationSecondImg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+    </div>
+    <hr class="separator">
+    <div class="row justify-content-center align-items-center">
+        <a href="?id={% getvar paginationIDBack %}" style="visibility: {% getvar btnBackVisible %};" id="backwardBtn" class="btn btn-primary mr-3"><i class="fas fa-arrow-left"></i></a>
+        <span class="text-center">{% getvar paginationID %} / {% getvar maxPaginationID %}</span>
+        <a href="?id={% getvar paginationIDForward %}" style="visibility: {% getvar btnForwardVisible %};" id="forwardBtn" class="btn btn-primary ml-3"><i class="fas fa-arrow-right"></i></a>
+    </div>
+    <hr class="separator">
+    <div class="row jc-space-even">
+        <img src="{% img standbild1.jpg;image/jpg %}" alt="" class="img-container w-40 rounded shadow img-contain">
+        <img src="{% img standbild2.jpg;image/jpg %}" alt="" class="img-container w-40 rounded shadow img-contain">
+    </div>
+    <hr class="separator">
+    <div class="table-wrap shadow">
+        <table class="table">
+            <tr class="table-row">
+                <th class="table-item-head">Name</th>
+                <th class="table-item-head">Karlotta-Amidala vom Elbbachtal</th>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">ZB-Nr.</td>
+                <td class="table-item">GRC 17/0314</td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">gew. am</td>
+                <td class="table-item">27.5.2017</td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Geschlecht</td>
+                <td class="table-item">Hündin</td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Eltern</td>
+                <td class="table-item">Wild Pepper Fortune Cookie&nbsp;X&nbsp;<br>Busy Miner Crash Room Bang Tessa</td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Ahnentafel</td>
+                <td class="table-item"><a href="https://db.drc.de/adr/ahnen/ahnen1.php?zbnr=GRC%252017/0314&race=Golden%2520Retriever" class="link-blue" target="_blank">Hier</a></td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">HD/ED</td>
+                <td class="table-item">Hüften = A2 (rechts = A2, links = A2)<br>Ellbogen rechts = frei, links = frei</td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Titel/Prüfungen</td>
+                <td class="table-item">WT</td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Besitzer</td>
+                <td class="table-item">Ilchmann&nbsp;Kathrin<br></td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Züchter</td>
+                <td class="table-item">Dagmar&nbsp;Jädtke<br></td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Risthöhe</td>
+                <td class="table-item">51,5 cm</td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Formwert</td>
+                <td class="table-item">vorzüglich<br>18 Monate alte, freundliche, kleine Hündin, cremefarben, kräftiger Kopf, wohlgeformter Stopp, leicht aufgehellter Nasenspiegel, Schere, kräftiger Nacken, gut zurückgelegte Schulter, vorzügliche Vorbrust, gerade breite Front, kurze, kräftige Lende, vorzüglich gewinkelt, korrekter Rutenansatz, wohlgeformter Brustkorb mit sehr guter Tiefe u. Breite, in der Bewegung im Kommen u. Gehen etwas eng, vorzügliches Haarkleid.<br><br>Richter: Gabriel</td>
+            </tr>
+            <tr class="table-row">
+                <td class="table-item">Wesenstest </td>
+                <td class="table-item">Temperament, Bewegungs- und Spieltrieb: <br>Die 18 Monate alte Golden Hündin absolviert den Wesenstest ausgeprägt temperamentvoll und bewegungsfreudig und nutzt das gesamte Gelände beim Spaziergang für sich. Mit großer Begeisterung spielt sie mit allen Menschen und auch mit einigen Gegenständen.<br><br>Ausdauer, Unerschrockenheit, Härte, Aufmerksamkeit: <br>Sie zeigt sich durchgehend ausgeprägt unerschrocken und ausdauernd und ist dabei stets aufmerksam.<br><br>Beute- und Bringtrieb, Spür- und Stöbertrieb: <br>Beuteverhalten ist in hohem Maße vorhanden: teils trägt sie und trägt freudig zu, teils spielt sie und trägt für sich.<br><br>Unterordnung und Bindung: <br>Die Hündin hat eine vertrauensvolle Bindung zu ihren Menschen und ordnet sich problemlos unter.<br><br>Sicherheit gegenüber Menschen, Kreisprobe, Rückenlage: <br>Menschen gegenüber ist sie sehr interessiert und nimmt gerne und freundlich Kontakt auf. Die einengenden Situationen absolviert sie ganz selbstverständlich.<br><br>Sicherheit gegenüber optischen und akustischen Reizen: <br>Auf dem Parcours ist sie an allen optischen und akustischen Reizen interessiert. Sie erkundet die Reize selbständig und sicher und braucht nur bei der Kuh eine kleine Unterstützung durch ihren Menschen.<br><br>Schussfestigkeit: <br>Die Hündin ist schussfest.<br><br>Bemerkungen: <br>Eine aktive Hündin mit viel Freude an Bewegung und viel Bezug zu Menschen.<br><br>Richter: Ott</td>
+            </tr>
+        </table>
+    </div>
+    <!--
+        
+    <div class="row jc-space-even">
+        <img src="{% img lotte_auf_wiese_schaut_rechts.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+        <img src="{% img lotte_auf_wiese_schaut_links.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+    </div>
+    <hr class="separator">
+    <div class="row jc-space-even">
+        <img src="{% img lotte_holz.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+        <img src="{% img lotte_laub.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+    </div>
+    <hr class="separator">
+    <div class="row jc-space-even">
+        <img src="{% img lotte_papa_fuß.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+        <img src="{% img lotte_papa_meer.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+    </div>
+    <hr class="separator">
+    <div class="row jc-space-even">
+        <img src="{% img lotte_fertig_graben.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+        <img src="{% img lotte_graben.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+    </div>
+    <hr class="separator">
+    <div class="row jc-space-even">
+        <img src="{% img lotte_hut.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+        <img src="{% img lotte_krebs.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+    </div>
+    <hr class="separator">
+    <div class="row jc-space-even">
+        <img src="{% img lotte_papa_meer2.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+        <img src="{% img lotte_stock.jpg;image/jpg %}" alt="" class="img-container w-40 h-60 rounded shadow img-cover">
+    </div>-->
+</div>

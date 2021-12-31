@@ -1,0 +1,14 @@
+{[ title=>News ]}
+{# extend layout@container #}
+
+{% styles %}
+
+<div>
+    <div class="news-item">
+        <h5 style="font-size: 20px;">{{ postTitle }}</h5>
+        <p style="font-size: 10px;">{{ postDate }}</p>
+        <hr class="news-item-separator">
+        <p style="font-size: 15px;" class="news-item-text">{{ postText }}</p>
+    </div>
+    <a href="./">Zurück zu allen News</a>
+</div>

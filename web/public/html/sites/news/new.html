@@ -1,0 +1,13 @@
+{[ title=>News ]}
+{# extend layout@container #}
+
+
+<div class="form-wrapper">
+    {?php
+        return Form::create('/news/new', 'POST',
+            new FormField('title', 'Titel', 'text'),
+            new FormField('text', 'Text', 'text'),
+            new FormField('submit', 'Erstellen', 'submit')
+        );
+     ?}
+</div>
