@@ -138,6 +138,11 @@
                     }
                 }
                 $news[$i]['text'] = $html;
+                $news[$i]['date'] = substr($news[$i]['date'], 0, 10);
+                $year = substr($news[$i]['date'], 0, 4);
+                $month = substr($news[$i]['date'], 5, 2);
+                $day = substr($news[$i]['date'], 8, 2);
+                $news[$i]['date'] = $day . "." . $month . "." . $year;
             }
 
             echo Response::view("sites/admin/news/index", [

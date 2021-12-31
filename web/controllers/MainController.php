@@ -39,6 +39,25 @@
         public function news()
         {
             $news = DB::query("SELECT * FROM `news` ORDER BY `date` DESC;");
+            for ($i=0; $i < count($news); $i++) { 
+                $news_content = DB::query("SELECT * FROM `news_content` WHERE `newsID` = :newsID;", [":newsID" => $news[$i]['id']]);
+                $html = "";
+                for ($j=0; $j < count($news_content); $j++) { 
+                    if ($news_content[$j]['type'] == "text") {
+                        $html .= "<p>" . $news_content[$j]['value'] . "</p>";
+                    } else {
+                        $contents = file_get_contents(Path::ROOT() . "/" . Path::IMG_ROOT . "/" . $news_content[$j]['value']);
+                        $base64 = base64_encode($contents);
+                        $html .= "<img src='data:image/jpg;base64,$base64' alt='' class='rounded shadow img-cover' style='height: 60px;'>";
+                    }
+                }
+                $news[$i]['text'] = $html;
+                $news[$i]['date'] = substr($news[$i]['date'], 0, 10);
+                $year = substr($news[$i]['date'], 0, 4);
+                $month = substr($news[$i]['date'], 5, 2);
+                $day = substr($news[$i]['date'], 8, 2);
+                $news[$i]['date'] = $day . "." . $month . "." . $year;
+            }
 
             echo Response::view("sites/news/all", [
                 "news" => $news
